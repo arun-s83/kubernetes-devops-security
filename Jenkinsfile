@@ -19,7 +19,11 @@ pipeline {
       stage('Print the environment') {
       agent { label 'demo' }
             steps {
+              withDockerRegistry([credentialsId:"docker-login",url:""]) {
               sh "printenv"
+              sh "dokcer build -t shanarun83/numeric-app:""$BUILD_ID"" ."
+              sh "docker push shanarun83/numeric-app:""$BUILD_ID"" "
+              }
               
             }
         }  
