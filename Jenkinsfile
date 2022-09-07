@@ -16,6 +16,12 @@ pipeline {
               
             }
         }  
-       
+      stage('Print the environment') {
+      agent { label 'demo' }
+            steps {
+              sh "printenv"
+              
+            }
+        }  
     }
 }
