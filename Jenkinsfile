@@ -9,5 +9,13 @@ pipeline {
               archive 'target/*.jar' //File can be downloaded later
             }
         }   
+      stage('Unit Test') {
+      agent { label 'demo' }
+            steps {
+              sh "mvn test"
+              
+            }
+        }  
+       
     }
 }
