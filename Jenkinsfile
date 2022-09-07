@@ -6,7 +6,7 @@ pipeline {
       agent { label 'demo' }
             steps {
               sh "mvn clean package -DskipTests=true"
-              archive 'target/*.jar' //so that they can be downloaded later
+              archive 'target/*.jar' //Files can be downloaded later
             }
         }   
     }
